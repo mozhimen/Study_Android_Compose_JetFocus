@@ -38,7 +38,7 @@ fun DrawClock(minute: Int) {
             val start2Y = UtilKTriangle.getAdjacentLength(radius, angle)
             val startOffset = Offset(start1X, start1Y)
             val endOffset = Offset(start2X, start2Y)
-            drawLine(Color.White, startOffset, endOffset, strokeWidth = 2f.dp.toPx())
+            drawLine(Color.White, startOffset, endOffset, strokeWidth = 3f.dp.toPx())
         }
     }
 }

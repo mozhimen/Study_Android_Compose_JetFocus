@@ -2,7 +2,7 @@ package com.example.jetfocus.demo.event2
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
@@ -15,6 +15,7 @@ import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -90,6 +91,7 @@ fun DrawScope.drawGrid(
 
 
 @Preview(device = "spec:width=280dp,height=280dp,dpi=640")
+@Preview(device = "spec:width=240dp,height=240dp,dpi=640")
 @Composable
 @ExperimentalTextApi
 fun DrawPathDemo() {
@@ -101,6 +103,15 @@ fun DrawPathDemo() {
             .background(Color.White)
             .drawWithCache {
                 val path = Path()
+    val textMeasurer = rememberTextMeasurer()
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.White)
+        .drawBehind {
+            drawRuler(textMeasurer)
+            drawGrid()
+        })
+}
 
                 onDrawBehind {
                     drawRuler(textMeasurer = textMeasurer)
@@ -113,5 +124,28 @@ fun DrawPathDemo() {
                 }
             }
     )
-}
+@Composable
+@ExperimentalTextApi
+fun DrawPathDemoResult() {
+    val textMeasurer = rememberTextMeasurer()
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.White)
+        .drawBehind {
+            drawRuler(textMeasurer)
+            drawGrid()
 
+            val path = Path()
+            path.moveTo(20f.dp.toPx(), 20f.dp.toPx())
+            path.lineTo(220f.dp.toPx(), 20f.dp.toPx())
+            path.lineTo(150f.dp.toPx(), 120f.dp.toPx())
+            path.lineTo(215f.dp.toPx(), 220f.dp.toPx())
+            path.lineTo(20f.dp.toPx(), 220f.dp.toPx())
+            path.lineTo(20f.dp.toPx(), 20.dp.toPx())
+            path.close()
+
+            drawPath(
+                path, Color.Black, style = Stroke(width = 5.dp.toPx())
+            )
+        })
+}
