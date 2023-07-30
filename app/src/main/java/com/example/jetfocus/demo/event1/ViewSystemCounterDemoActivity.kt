@@ -1,4 +1,4 @@
-package com.example.jetfocus.demo
+package com.example.jetfocus.demo.event1
 
 import android.app.Activity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.example.jetfocus.R
 
-class ViewSystemDemoActivity : Activity() {
+class ViewSystemCounterDemoActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_system_counter_demo)
@@ -26,3 +26,6 @@ class ViewSystemDemoActivity : Activity() {
         }
     }
 }
+
+
+
