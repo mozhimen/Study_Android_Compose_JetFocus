@@ -8,17 +8,38 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.jetfocus.demo.event2.drawGrid
+import com.example.jetfocus.demo.event2.drawRuler
 
+@OptIn(ExperimentalTextApi::class)
 @Preview
 @Composable
 fun CurveTask() {
+    val textMeasurer = rememberTextMeasurer()
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.White)
         .drawWithCache {
             val path = Path()
             onDrawBehind {
+                drawRuler(textMeasurer)
+                drawGrid()
+
+                path.moveTo(18f,2f)
+                path.moveTo(25f,10f)
+                path.moveTo(22f,2f)
+                path.moveTo(25f,10f)
+                path.moveTo(17f,2f)
+                path.close()
+
+                drawPath(
+                    path, Color.Black, style = Stroke(width = 5.dp.toPx())
+                )
             }
         })
 }

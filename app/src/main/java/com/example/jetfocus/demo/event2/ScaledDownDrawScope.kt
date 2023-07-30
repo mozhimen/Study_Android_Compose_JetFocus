@@ -1,4 +1,4 @@
-package graphics
+package com.example.jetfocus.demo.event2
 
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
@@ -264,7 +264,7 @@ class ScaledDownDrawScope(
 }
 
 @ExperimentalTextApi
-fun ScaledDownDrawScope.drawRuler(
+fun DrawScope.drawRuler(
     textMeasurer: TextMeasurer,
     lineCount: Int = 24,
     unitsPerGroup: Int = 4,
@@ -303,7 +303,7 @@ fun ScaledDownDrawScope.drawRuler(
 
 
 @ExperimentalTextApi
-fun ScaledDownDrawScope.drawGrid(
+fun DrawScope.drawGrid(
     canvasSize: Size = Size(
         width = 240.dp.toPx(),
         height = 240.dp.toPx()
