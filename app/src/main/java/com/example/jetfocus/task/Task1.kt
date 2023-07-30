@@ -1,5 +1,6 @@
 package com.example.jetfocus.task
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
@@ -11,6 +12,7 @@ class Task1 {
     @Preview
     @Composable
     fun Preview() {
+        Text(text = "Hello Jetpack Compose!")
         // HelloWord()
     }
 }

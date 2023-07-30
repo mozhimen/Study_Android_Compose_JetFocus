@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -29,8 +30,10 @@ class Task7 {
     // TODO("把用显示列表用的Column改为LazyColumn，观察他的滚动行为")
     @Composable
     fun UI() {
-        Column {
-            repeat(100) {
+        LazyColumn {
+            item {
+                UserInfoCard()
+                UserInfoCard()
                 UserInfoCard()
             }
         }

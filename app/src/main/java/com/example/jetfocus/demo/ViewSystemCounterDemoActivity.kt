@@ -9,7 +9,7 @@ import com.example.jetfocus.R
 class ViewSystemDemoActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_system_demo)
+        setContentView(R.layout.activity_view_system_counter_demo)
 
         var counter = 0
         val textview = findViewById<TextView>(R.id.counterTextview)

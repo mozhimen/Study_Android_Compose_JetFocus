@@ -4,6 +4,8 @@ import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,15 +22,21 @@ class Task9 {
     // Tips: 用SampleData文件的数据
     @Composable
     fun UI() {
-
+        LazyVerticalGrid(columns = GridCells.Fixed(3)) {
+            users.forEach {
+                item {
+                    UserAvatar(user = it)
+                }
+            }
+        }
     }
 
     @Composable
     fun UserAvatar(user: User) {
-            Image(
-                painter = painterResource(user.imageId),
-                contentDescription = null
-            )
+        Image(
+            painter = painterResource(user.imageId),
+            contentDescription = null
+        )
     }
 
     @Composable

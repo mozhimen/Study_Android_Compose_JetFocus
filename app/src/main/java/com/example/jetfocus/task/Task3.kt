@@ -1,5 +1,6 @@
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
@@ -15,13 +16,20 @@ class Task3 {
 
     @Composable
     fun UserInfoCard() {
-        Column {
-            Image(
-                painter = painterResource(R.drawable.andy),
-                contentDescription = null
-            )
-            Text("Andy Holloway")
+        Row {
+            Column {
+                Image(
+                    painter = painterResource(R.drawable.andy),
+                    contentDescription = null
+                )
+                Text("Andy Holloway")
+            }
+            Column {
+                Text(text = "Android Developer")
+                Text(text = "Andy 是相当有经验的安卓开发者，他参与了Google的各类大型项目，他喜欢游泳和烘培。")
+            }
         }
+
     }
 
     @Composable

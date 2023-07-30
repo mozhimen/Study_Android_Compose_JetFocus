@@ -20,6 +20,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetfocus.R
+import com.example.jetfocus.ui.theme.TaskTheme
 
 // 主题（皮肤或Theming）
 class Task5 {
@@ -53,6 +54,8 @@ class Task5 {
     @Preview(showSystemUi = true)
     @Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
     fun Preview() {
-        UserInfoCard()
+        TaskTheme {
+            UserInfoCard()
+        }
     }
 }

@@ -27,7 +27,14 @@ class Task6 {
 
     @Composable
     fun UI() {
-
+        Column {
+            UserInfoCard()
+            UserInfoCard()
+            UserInfoCard()
+            repeat(4) {
+                UserInfoCard()
+            }
+        }
     }
 
     @Composable
@@ -56,13 +63,8 @@ class Task6 {
     }
 
     @Composable
-    @Preview(
-        name = "Light Mode",
-    )
-    @Preview(
-        uiMode = Configuration.UI_MODE_NIGHT_YES,
-        name = "Dark Mode",
-    )
+    @Preview(name = "Light Mode")
+    @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, name = "Dark Mode")
     fun Preview() {
         UI()
     }
