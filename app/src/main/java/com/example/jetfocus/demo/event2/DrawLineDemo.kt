@@ -19,27 +19,28 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview
 @Composable
 fun DrawLineDemo() {
-    var startOffset by remember { mutableStateOf(Offset(0f, 0f)) }
-    var endOffset by remember { mutableStateOf(Offset(0f, 0f)) }
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White)
-        .pointerInput(Unit) {
-            detectDragGestures(
-                onDragStart = {
-                    startOffset = it
-                    endOffset = it
-                },
-                onDrag = { change, dragAmount ->
-                    endOffset += dragAmount
-                    println(dragAmount)
-                },
-                onDragEnd = {},
-                onDragCancel = {},
-            )
-        }
-        .drawBehind {
-            drawLine(Color.Black, startOffset, endOffset)
-        }
-    )
+//    var startOffset by remember { mutableStateOf(Offset(0f, 0f)) }
+//    var endOffset by remember { mutableStateOf(Offset(110f, 110f)) }
+//    Box(modifier = Modifier
+//        .fillMaxSize()
+//        .background(Color.White)
+//        .pointerInput(Unit) {
+//            detectDragGestures(
+//                onDragStart = {
+//                    startOffset = it
+//                    endOffset = it
+//                },
+//                onDrag = { change, dragAmount ->
+//                    endOffset += dragAmount
+//                    println(dragAmount)
+//                },
+//                onDragEnd = {},
+//                onDragCancel = {},
+//            )
+//        }
+//        .drawBehind {
+//            drawLine(Color.Black, startOffset, endOffset)
+//        }
+//    )
+//    val textLayoutMeasurer =
 }

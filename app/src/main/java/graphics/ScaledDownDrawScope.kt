@@ -264,7 +264,7 @@ class ScaledDownDrawScope(
 }
 
 @ExperimentalTextApi
-private fun ScaledDownDrawScope.drawRuler(
+fun ScaledDownDrawScope.drawRuler(
     textMeasurer: TextMeasurer,
     lineCount: Int = 24,
     unitsPerGroup: Int = 4,
@@ -303,7 +303,7 @@ private fun ScaledDownDrawScope.drawRuler(
 
 
 @ExperimentalTextApi
-private fun ScaledDownDrawScope.drawGrid(
+fun ScaledDownDrawScope.drawGrid(
     canvasSize: Size = Size(
         width = 240.dp.toPx(),
         height = 240.dp.toPx()
