@@ -30,11 +30,12 @@ fun CurveTask() {
                 drawRuler(textMeasurer)
                 drawGrid()
 
-                path.moveTo(18f,2f)
-                path.moveTo(25f,10f)
-                path.moveTo(22f,2f)
-                path.moveTo(25f,10f)
-                path.moveTo(17f,2f)
+                path.moveTo(4.5.dp.toPx(),18.5.dp.toPx())
+                path.lineTo(1.5.dp.toPx(),-10.dp.toPx())
+                path.cubicTo(1.0.dp.toPx(),-7.dp.toPx(),12.dp.toPx(),-7.dp.toPx(),13.dp.toPx(),0.dp.toPx())
+                path.lineTo(1.5.dp.toPx(),10.dp.toPx())
+                path.moveTo(12.dp.toPx(),0.dp.toPx())
+                path.cubicTo(-2.dp.toPx(),4.dp.toPx(),-6.dp.toPx(),4.dp.toPx(),-8.dp.toPx(),0.dp.toPx())
                 path.close()
 
                 drawPath(

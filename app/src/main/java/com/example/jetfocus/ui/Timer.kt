@@ -3,6 +3,7 @@ package com.example.jetfocus.ui
 import android.icu.text.SimpleDateFormat
 import android.view.Choreographer
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -15,6 +16,8 @@ import androidx.compose.runtime.withFrameMillis
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.AndroidUiFrameClock
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.jetfocus.demo.event2.ProgressCircle
 import com.example.jetfocus.ui.TimerState.INITIAL
 import com.example.jetfocus.ui.TimerState.RESUME
 import com.example.jetfocus.ui.TimerState.START
@@ -55,6 +58,7 @@ enum class TimerState {
 @Composable
 fun rememberTimerState() = remember { mutableStateOf(INITIAL) }
 
+@Preview
 @Composable
 fun CountDownTimer(
     modifier: Modifier = Modifier,
@@ -69,7 +73,8 @@ fun CountDownTimer(
     }
 
     if (state == INITIAL) resetValue()
-    Box {
+    Column {
+        ProgressCircle(sweepAngle = (countDownInMills.toInt() / 25000) * 360)
         Ticker(
             onTick = {
                 countDownInMills -= it
