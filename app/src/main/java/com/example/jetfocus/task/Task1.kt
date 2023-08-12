@@ -8,11 +8,14 @@ import androidx.compose.ui.tooling.preview.Preview
 class Task1 {
 
     // TODO(写一个HelloWorld的Composable函数并绘制一个“Hello Jetpack Compose!”的文字)
+    @Composable
+    fun HelloWord() {
+        Text(text = "Hello Jetpack Compose!")
+    }
 
     @Preview
     @Composable
     fun Preview() {
-        Text(text = "Hello Jetpack Compose!")
-        // HelloWord()
+        HelloWord()
     }
 }

@@ -28,6 +28,7 @@ fun DrawPathDemo() {
         })
 }
 
+@Preview(device = "spec:width=240dp,height=240dp,dpi=640")
 @Composable
 @ExperimentalTextApi
 fun DrawPathDemoResult() {
@@ -39,15 +40,30 @@ fun DrawPathDemoResult() {
             drawRuler(textMeasurer)
             drawGrid()
 
+            val width = 240f.dp.toPx()
+            val height = 240f.dp.toPx()
             val path = Path()
-            path.moveTo(20f.dp.toPx(), 20f.dp.toPx())
-            path.lineTo(220f.dp.toPx(), 20f.dp.toPx())
-            path.lineTo(150f.dp.toPx(), 120f.dp.toPx())
-            path.lineTo(215f.dp.toPx(), 220f.dp.toPx())
-            path.lineTo(20f.dp.toPx(), 220f.dp.toPx())
-            path.lineTo(20f.dp.toPx(), 20.dp.toPx())
-            path.close()
 
+            //kotlin -> k
+//            path.moveTo(20f.dp.toPx(), 20f.dp.toPx())
+//            path.lineTo(220f.dp.toPx(), 20f.dp.toPx())
+//            path.lineTo(150f.dp.toPx(), 120f.dp.toPx())
+//            path.lineTo(215f.dp.toPx(), 220f.dp.toPx())
+//            path.lineTo(20f.dp.toPx(), 220f.dp.toPx())
+//            path.lineTo(20f.dp.toPx(), 20.dp.toPx())
+//            path.close()
+//
+//            drawPath(
+//                path, Color.Black, style = Stroke(width = 5.dp.toPx())
+//            )
+
+            //heart
+            path.moveTo(width / 2, height / 3)
+            path.cubicTo(width / 2, height / 7f, width / 4 * 3, height / 7f, width / 4 * 3, height / 3)
+            path.quadraticBezierTo(width / 4 * 3, height / 2f, +width / 2, height / 8*5)
+            path.cubicTo(width / 4, height / 2f, width / 4, height / 3, width / 4, height / 3)
+            path.cubicTo(width / 4, height / 7f, width / 2, height / 7f, width / 2, height / 3)
+            path.close()
             drawPath(
                 path, Color.Black, style = Stroke(width = 5.dp.toPx())
             )

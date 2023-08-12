@@ -42,14 +42,14 @@ fun JetFocusApp() {
 @Composable
 fun TimeScreen() {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.Gray)
+        modifier = Modifier.fillMaxSize()
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.align(Alignment.Center)
         ) {
             var timerState by rememberTimerState()
-            CountDownTimer(duration = 25.minutes, state = timerState)
+            CountDownTimer(duration = 25.minutes, state = timerState, modifier = Modifier.align(Alignment.CenterHorizontally))
             Spacer(modifier = Modifier.height(12.dp))
             TimerControl(
                 state = timerState,
@@ -117,7 +117,6 @@ private fun TimerControl(
 
 @Composable
 @Preview
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun Preview() {
     JetFocusApp()
 }

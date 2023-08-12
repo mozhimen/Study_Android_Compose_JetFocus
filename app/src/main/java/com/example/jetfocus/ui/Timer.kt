@@ -13,6 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.withFrameMillis
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.AndroidUiFrameClock
 import androidx.compose.ui.text.TextStyle
@@ -74,17 +75,18 @@ fun CountDownTimer(
 
     if (state == INITIAL) resetValue()
     Column {
-        ProgressCircle(sweepAngle = (countDownInMills.toInt() / 25000) * 360)
+
         Ticker(
             onTick = {
                 countDownInMills -= it
-                println("tick: $it")
             },
             isOn = state == START || state == RESUME
         ) {
+            ProgressCircle(sweepAngle = (countDownInMills.toDouble() / 1000.0 / 60.0 / 25.0) * 360.0)
+
             val timerFormat = SimpleDateFormat("mm:ss", Locale.getDefault())
             val formattedText = timerFormat.format(Date(countDownInMills))
-            Text(modifier = modifier, text = formattedText, style = style)
+            Text(modifier = Modifier.align(Alignment.CenterHorizontally), text = formattedText, style = style)
         }
     }
 }
