@@ -64,6 +64,7 @@ fun DrawPathDemoResult() {
             path.cubicTo(width / 4, height / 2f, width / 4, height / 3, width / 4, height / 3)
             path.cubicTo(width / 4, height / 7f, width / 2, height / 7f, width / 2, height / 3)
             path.close()
+
             drawPath(
                 path, Color.Black, style = Stroke(width = 5.dp.toPx())
             )

@@ -2,7 +2,6 @@ package com.example.jetfocus.ui
 
 import android.icu.text.SimpleDateFormat
 import android.view.Choreographer
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,7 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.AndroidUiFrameClock
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.jetfocus.demo.event2.ProgressCircle
+import com.example.jetfocus.demo.event2.Clock
+import com.example.jetfocus.demo.event2.Clock2
 import com.example.jetfocus.ui.TimerState.INITIAL
 import com.example.jetfocus.ui.TimerState.RESUME
 import com.example.jetfocus.ui.TimerState.START
@@ -82,8 +82,8 @@ fun CountDownTimer(
             },
             isOn = state == START || state == RESUME
         ) {
-            ProgressCircle(sweepAngle = (countDownInMills.toDouble() / 1000.0 / 60.0 / 25.0) * 360.0)
-
+            Clock2((countDownInMills.toDouble() / 1000.0 / 60.0).toInt(), Modifier.align(Alignment.CenterHorizontally))
+            Clock(sweepAngle = (countDownInMills.toDouble() / 1000.0 / 60.0 / 25.0) * 360.0)
             val timerFormat = SimpleDateFormat("mm:ss", Locale.getDefault())
             val formattedText = timerFormat.format(Date(countDownInMills))
             Text(modifier = Modifier.align(Alignment.CenterHorizontally), text = formattedText, style = style)
